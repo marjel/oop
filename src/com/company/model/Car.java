@@ -1,10 +1,24 @@
 package com.company.model;
 
 public class Car extends Vehicle {
+
+    private Engine engine = new FuelEngine();
+
     @Override
-    protected boolean accelerate(int speed) {
-        System.out.println("Accelerate as a car");
-        return false;
+    protected void accelerate(int speed) {
+
+        engine.setSpeed(speed);
+
+    }
+
+    @Override
+    public void start() {
+        engine.start();
+    }
+
+    @Override
+    public void stop() {
+        engine.stop();
     }
 
     public Car() {

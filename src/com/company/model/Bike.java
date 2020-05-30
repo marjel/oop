@@ -3,9 +3,18 @@ package com.company.model;
 public class Bike extends Vehicle {
 
     @Override
-    protected boolean accelerate(int speed) {
+    protected void accelerate(int speed) {
         System.out.println("Accelerate as a bike");
-        return false;
+    }
+
+    @Override
+    public void start() {
+
+    }
+
+    @Override
+    public void stop() {
+
     }
 
     public Bike() {

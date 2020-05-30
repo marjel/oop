@@ -4,15 +4,15 @@ public abstract class Vehicle {
 
     private String name;
 
-    private int speed;
+    private Integer speed;
 
-    protected abstract boolean accelerate(int speed);
+    protected abstract void accelerate(int speed);
 
-    public int getSpeed() {
+    public Integer getSpeed() {
         return speed;
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(Integer speed) {
         this.speed = speed;
         this.accelerate(speed);
     }
@@ -25,13 +25,10 @@ public abstract class Vehicle {
         this.name = name;
     }
 
-    public void start() {
-        System.out.println("vehicle started");
-    }
+    public abstract void start();
 
-    public void stop() {
-        System.out.println("Vehicle stopped");
-    }
+    public abstract void stop();
+
     public Vehicle() {
         System.out.println("Vehicle");
     }
