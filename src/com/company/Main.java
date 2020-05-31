@@ -1,11 +1,24 @@
 package com.company;
 
 import com.company.abstractFactory.AbstractRace;
+import com.company.factoryMethod.Implementation1;
+import com.company.factoryMethod.Implementation2;
+import com.company.factoryMethod.Service;
+import com.company.factoryMethod.ServiceFactory;
 import com.company.model.Car;
 import com.company.model.Vehicle;
 import com.company.strategy.CarTypeStrategy;
 
 public class Main {
+
+    public static void serviceConsumer(ServiceFactory factory) {
+
+        Service service = factory.getService();
+        service.method1();
+        service.method2();
+
+
+    }
 
     public static void main(String[] args) {
         // System.out.println("Start");
@@ -34,6 +47,11 @@ public class Main {
 
         System.out.println(car.getType());
 
+        /*
+        * factory method
+        * */
+        serviceConsumer(Implementation1.factory);
+        serviceConsumer(Implementation2.factory);
 
     }
 }
