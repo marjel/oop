@@ -6,14 +6,11 @@ public abstract class Vehicle {
 
     private Integer speed;
 
-    public boolean isStared() {
-        return stared;
+    public boolean isStarted() {
+        return started;
     }
 
-    /*
-    * todo
-    * */
-    protected boolean stared;
+    protected boolean started;
     protected abstract void accelerate(int speed);
 
     public Integer getSpeed() {

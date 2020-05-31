@@ -10,7 +10,7 @@ public class Car extends Vehicle {
 
     @Override
     protected void accelerate(int speed) {
-        if(stared) {
+        if(started) {
             engine.setSpeed(speed);
         } //todo - throw exception
 
@@ -19,13 +19,13 @@ public class Car extends Vehicle {
 
     @Override
     public void start() {
-        stared = true;
+        started = true;
         engine.start();
     }
 
     @Override
     public void stop() {
-        stared = false;
+        started = false;
         engine.stop();
     }
 
