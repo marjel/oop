@@ -1,6 +1,4 @@
-package com.company.factory;
-
-import com.company.model.Vehicle;
+package com.company.abstractFactory;
 
 public class CarRace extends AbstractRace {
 

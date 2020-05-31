@@ -1,8 +1,9 @@
 package com.company;
 
-import com.company.factory.AbstractRace;
+import com.company.abstractFactory.AbstractRace;
 import com.company.model.Car;
 import com.company.model.Vehicle;
+import com.company.strategy.CarTypeStrategy;
 
 public class Main {
 
@@ -20,22 +21,19 @@ public class Main {
 
         System.out.println(race.getLapsNumber());
 
-        Vehicle v1 = new Vehicle() {
-            @Override
-            protected void accelerate(int speed) {
-
-            }
+        CarTypeStrategy cabriolet = new CarTypeStrategy() {
 
             @Override
-            public void start() {
-
-            }
-
-            @Override
-            public void stop() {
-
+            public String getType() {
+                return "cabriolet";
             }
         };
+
+        final Car car = (Car) vehicle;
+        car.setTypeStrategy(cabriolet);
+
+        System.out.println(car.getType());
+
 
     }
 }
