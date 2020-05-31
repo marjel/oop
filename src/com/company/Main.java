@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.abstractFactory.AbstractRace;
+import com.company.enumeration.ProductType;
 import com.company.factoryMethod.Implementation1;
 import com.company.factoryMethod.Implementation2;
 import com.company.factoryMethod.Service;
@@ -20,6 +21,12 @@ public class Main {
 
     }
 
+    private static void iterateEnum() {
+        for (ProductType productType: ProductType.values()) {
+            System.out.println(productType + " description = " + productType.getNumericValue());
+        }
+    }
+
     public static void main(String[] args) {
         // System.out.println("Start");
         Vehicle vehicle = new Car();
@@ -28,6 +35,7 @@ public class Main {
 
         Integer speed = vehicle.getSpeed();
 
+        vehicle.start();
         vehicle.setSpeed(10);
 
         AbstractRace race = AbstractRace.getRace(vehicle);
@@ -49,9 +57,11 @@ public class Main {
 
         /*
         * factory method
-        * */
+        *
         serviceConsumer(Implementation1.factory);
-        serviceConsumer(Implementation2.factory);
+        serviceConsumer(Implementation2.factory);*/
+
+        iterateEnum();
 
     }
 }

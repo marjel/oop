@@ -1,5 +1,6 @@
 package com.company.model;
 
+import com.company.exception.NotStartedEngineException;
 import com.company.strategy.CarTypeStrategy;
 
 public class Car extends Vehicle {
@@ -9,10 +10,12 @@ public class Car extends Vehicle {
     private CarTypeStrategy typeStrategy;
 
     @Override
-    protected void accelerate(int speed) {
+    protected void accelerate(int speed) throws NotStartedEngineException {
         if(started) {
             engine.setSpeed(speed);
-        } //todo - throw exception
+        } else {
+            throw new NotStartedEngineException("Acceleration of stopped engine");
+        }
 
 
     }
