@@ -1,24 +1,40 @@
 package com.company.model;
 
+import com.company.strategy.CarTypeStrategy;
+
 public class Car extends Vehicle {
 
     private Engine engine = new FuelEngine();
 
+    private CarTypeStrategy typeStrategy;
+
     @Override
     protected void accelerate(int speed) {
+        if(stared) {
+            engine.setSpeed(speed);
+        } //todo - throw exception
 
-        engine.setSpeed(speed);
 
     }
 
     @Override
     public void start() {
+        stared = true;
         engine.start();
     }
 
     @Override
     public void stop() {
+        stared = false;
         engine.stop();
+    }
+
+    public void setTypeStrategy(CarTypeStrategy typeStrategy){
+        this.typeStrategy = typeStrategy;
+    }
+
+    public String getType() {
+        return this.typeStrategy.getType();
     }
 
     public Car() {
